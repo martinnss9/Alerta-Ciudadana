@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Alerta Ciudadana - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🚧 Alerta Ciudadana 🚦</h1>
+        <nav>
+            <a href="inicio.html">Inicio</a>
+            <a href="index.html">Reportar</a>
+            <a href="misreportes.html">Mis Reportes</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-login">
+            <h2>Iniciar Sesion</h2>
+<form action="login.php" method="POST">
+    <label>Correo:</label>
+    <input type="email" name="email" required>
+    <label>Contrasela:</label>
+    <input type="password" name="password" required>
+    <button type="submit">Ingresar</button>
+</form>
+
+        </section>
+
+        <section class="form-register">
+            <h2>Registrarse</h2>
+<form action="register.php" method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+    <label>Correo:</label>
+    <input type="email" name="email" required>
+    <label>Contrasela:</label>
+    <input type="password" name="password" required>
+    <button type="submit">Crear Cuenta</button>
+</form>
+
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Alerta Ciudadana © 2025 - Proyecto comunitario</p>
+    </footer>
+
+    <script>
+        // Registrar usuario
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let nombre = document.getElementById("nombre").value;
+            let email = document.getElementById("emailReg").value;
+            let password = document.getElementById("passwordReg").value;
+
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+            // Evitar registros repetidos
+            if (usuarios.find(u => u.email === email)) {
+                alert("Ese correo ya esta registrado");
+                return;
+            }
+
+            usuarios.push({nombre, email, password});
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+            alert("Registro exitoso. Ahora puedes iniciar sesion.");
+            document.getElementById("registerForm").reset();
+        });
+
+        // Login
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            let user = usuarios.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                localStorage.setItem("usuarioLogueado", JSON.stringify(user));
+                alert("Bienvenido " + user.nombre);
+                window.location.href = "index.html"; // redirige a reportar
+            } else {
+                alert("Correo o contraseña incorrectos");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Alerta Ciudadana - Mis Reportes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🚧 Alerta Ciudadana 🚦</h1>
+        <nav>
+            <a href="inicio.html">Inicio</a>
+            <a href="index.html">Reportar</a>
+            <a href="misreportes.html">Mis Reportes</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="mis-reportes">
+            <h2>Mis Reportes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripcion</th>
+                        <th>Categoria</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody id="listaReportes"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Alerta Ciudadana © 2025 - Proyecto comunitario</p>
+    </footer>
+
+    <script>
+        let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+        if (!usuario) {
+            alert("Debes iniciar sesion para ver tus reportes.");
+            window.location.href = "login.html";
+        }
+
+        let reportes = JSON.parse(localStorage.getItem("reportes")) || [];
+        let misReportes = reportes.filter(r => r.usuario === usuario.email);
+
+        let lista = document.getElementById("listaReportes");
+
+        if (misReportes.length === 0) {
+            lista.innerHTML = `<tr><td colspan="5">No tienes reportes enviados</td></tr>`;
+        } else {
+            misReportes.forEach(r => {
+                let fila = `
+                    <tr>
+                        <td>${r.descripcion}</td>
+                        <td>${r.categoria}</td>
+                        <td>${r.fecha}</td>
+                        <td>${r.estado}</td>
+                        <td>${r.foto ? `<img src="${r.foto}" width="100px">` : "Sin foto"}</td>
+                    </tr>
+                `;
+                lista.innerHTML += fila;
+            });
+        }
+    </script>
+</body>
+</html>
