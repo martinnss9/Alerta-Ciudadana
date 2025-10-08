@@ -15,9 +15,6 @@ Registro e inicio de sesion para los usuarios, con el fin de dar mayor organizac
 Este proyecto busca mejorar la comunicacion entre ciudadanos y autoridades, reduciendo tiempos de respuesta y contribuyendo al bienestar de la comunidad.
 
 Integrantes:
-
 Juan
-
 Matias
-
 Martin
