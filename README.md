@@ -1,18 +1,18 @@
- Proyecto: Alerta Ciudadana
+Alerta Ciudadana:
 
-La pagina Alerta Ciudadana tiene como objetivo brindar a la gente una herramienta digital rapida y sencilla para reportar problemas en la via publica, especificamente baches.
+Alerta Ciudadana es una pagina web cuyo objetivo es ofrecer a las personas una herramienta digital rapida y facil de usar para reportar problemas en la via publica, especialmente baches.
 
-El sistema contara con:
+El sistema incluye las siguientes funciones:
 
-Un mapa interactivo donde los usuarios podran marcar la ubicacion del problema.
+Mapa interactivo: permite a los usuarios marcar la ubicacion exacta del problema.
 
-Un formulario para describir el dano y subir una foto.
+Formulario de reporte: posibilita describir el daño y subir una foto como evidencia.
 
-Un seguimiento del estado del reporte (pendiente, en reparacion, resuelto).
+Seguimiento del estado del reporte: muestra si el problema esta pendiente, en reparacion o resuelto.
 
-Registro e inicio de sesion para los usuarios, con el fin de dar mayor organizacion y control a los reportes.
+Registro e inicio de sesion: brinda mayor organizacion y control sobre los reportes realizados por cada usuario.
 
-Este proyecto busca mejorar la comunicacion entre ciudadanos y autoridades, reduciendo tiempos de respuesta y contribuyendo al bienestar de la comunidad.
+Este proyecto busca mejorar la comunicacion entre los ciudadanos y las autoridades, agilizando los tiempos de respuesta y contribuyendo al bienestar y la seguridad de la comunidad.
 
 Integrantes:
 Juan
